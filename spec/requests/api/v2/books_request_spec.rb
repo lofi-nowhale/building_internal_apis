@@ -7,6 +7,8 @@ describe "Books API v2" do
     get '/api/v2/books'
 
     expect(response).to be_successful
+    
+    books = JSON.parse(response.body, symbolize_names: true)
 
     books.each do |book|
       expect(book).to have_key(:id)
