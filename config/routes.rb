@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     namespace:v1 do
       resources :books #we can remove the only and hand rolling of each route since we've now created all restful routes 
     end
+
+    namespace :v2 do 
+      resources :books, only: [:index]
+    end
   end
 end
