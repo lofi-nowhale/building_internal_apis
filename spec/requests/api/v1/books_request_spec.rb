@@ -8,7 +8,7 @@ describe "Books API" do
 
     expect(response).to be_successful
 
-    books = JSON.parse(response.body)
+    books = JSON.parse(response.body, symbolize_names: true)
 
     expect(books.count).to eq(3)
 
@@ -20,7 +20,7 @@ describe "Books API" do
       expect(book[:title]).to be_a(String)
       
       expect(book).to have_key(:author)
-      expect(book[:authod]).to be_a(String)
+      expect(book[:author]).to be_a(String)
 
       expect(book).to have_key(:genre)
       expect(book[:genre]).to be_a(String)
